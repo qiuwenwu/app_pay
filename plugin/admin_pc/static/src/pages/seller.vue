@@ -9,28 +9,28 @@
 								<h5>商户信息</h5>
 							</div>
 							<div class="card_body">
-								<mm_form class="mm_filter">
+								<mm_form class="bar_filter">
 									<div class="title">
 										<h5><span>筛选条件</span></h5>
 									</div>
 									<mm_list col="3">
 										<mm_item>
-											<mm_input v-model="query.keyword" title="关键词" desc="商户名称"
+											<control_input v-model="query.keyword" title="关键词" desc="商户名称"
 											 @blur="search()" />
 										</mm_item>
 										<mm_item>
-											<mm_select v-model="query.institution_state" title="认证状态" :options="$to_kv(arr_institution_state)" @change="search()" />
+											<control_select v-model="query.institution_state" title="认证状态" :options="$to_kv(arr_institution_state)" @change="search()" />
 										</mm_item>
 										<mm_item>
-											<mm_select v-model="query.user_id" title="商户持有人" :options="$to_kv(list_account, 'user_id', 'nickname')"
+											<control_select v-model="query.user_id" title="商户持有人" :options="$to_kv(list_account, 'user_id', 'nickname')"
 											 @change="search()" />
 										</mm_item>
 										<mm_item>
-											<mm_select v-model="query.province_id" title="省份" :options="$to_kv(list_address_province, 'province_id', 'name')"
+											<control_select v-model="query.province_id" title="省份" :options="$to_kv(list_address_province, 'province_id', 'name')"
 											 @change="search()" />
 										</mm_item>
 										<mm_item>
-											<mm_select v-model="query.city_id" title="所在城市" :options="$to_kv(list_address_city, 'city_id', 'name')"
+											<control_select v-model="query.city_id" title="所在城市" :options="$to_kv(list_address_city, 'city_id', 'name')"
 											 @change="search()" />
 										</mm_item>
 										<mm_item>
@@ -38,14 +38,14 @@
 										</mm_item>
 									</mm_list>
 								</mm_form>
-								<div class="mm_action">
+								<div class="bar_action">
 									<h5><span>操作</span></h5>
 									<div class="btns">
 										<mm_btn class="btn_primary-x" url="./seller_form?">添加</mm_btn>
 										<mm_btn @click.native="show = true" class="btn_primary-x" v-bind:class="{ 'disabled': !selects }">批量修改</mm_btn>
 									</div>
 									<div class="btn_small">
-										<mm_file class="btn_default-x" type="excel" :func="import_db" v-if="url_import"></mm_file>
+										<control_file class="btn_default-x" type="excel" :func="import_db" v-if="url_import"></control_file>
 										<mm_btn class="btn_default-x" @click.native="export_db()" v-if="url_export">导出</mm_btn>
 									</div>
 								</div>
@@ -55,31 +55,31 @@
 											<th class="th_selected"><input type="checkbox" :checked="select_state" @click="select_all()" /></th>
 											<th class="th_id"><span>#</span></th>
 											<th>
-												<mm_reverse title="认证状态" v-model="query.orderby" field="institution_state" :func="search"></mm_reverse>
+												<control_reverse title="认证状态" v-model="query.orderby" field="institution_state" :func="search"></control_reverse>
 											</th>
 											<th>
-												<mm_reverse title="商户持有人" v-model="query.orderby" field="user_id" :func="search"></mm_reverse>
+												<control_reverse title="商户持有人" v-model="query.orderby" field="user_id" :func="search"></control_reverse>
 											</th>
 											<th>
-												<mm_reverse title="省份" v-model="query.orderby" field="province_id" :func="search"></mm_reverse>
+												<control_reverse title="省份" v-model="query.orderby" field="province_id" :func="search"></control_reverse>
 											</th>
 											<th>
-												<mm_reverse title="所在城市" v-model="query.orderby" field="city_id" :func="search"></mm_reverse>
+												<control_reverse title="所在城市" v-model="query.orderby" field="city_id" :func="search"></control_reverse>
 											</th>
 											<th>
-												<mm_reverse title="商户名称" v-model="query.orderby" field="name" :func="search"></mm_reverse>
+												<control_reverse title="商户名称" v-model="query.orderby" field="name" :func="search"></control_reverse>
 											</th>
 											<th>
-												<mm_reverse title="注册企业名" v-model="query.orderby" field="institution" :func="search"></mm_reverse>
+												<control_reverse title="注册企业名" v-model="query.orderby" field="institution" :func="search"></control_reverse>
 											</th>
 											<th>
-												<mm_reverse title="组织机构码" v-model="query.orderby" field="institution_code" :func="search"></mm_reverse>
+												<control_reverse title="组织机构码" v-model="query.orderby" field="institution_code" :func="search"></control_reverse>
 											</th>
 											<th>
-												<mm_reverse title="详细地址" v-model="query.orderby" field="address" :func="search"></mm_reverse>
+												<control_reverse title="详细地址" v-model="query.orderby" field="address" :func="search"></control_reverse>
 											</th>
 											<th>
-												<mm_reverse title="经营范围" v-model="query.orderby" field="business" :func="search"></mm_reverse>
+												<control_reverse title="经营范围" v-model="query.orderby" field="business" :func="search"></control_reverse>
 											</th>
 											<th class="th_handle"><span>操作</span></th>
 										</tr>
@@ -127,7 +127,7 @@
 							</div>
 							<div class="card_foot">
 								<div class="fl">
-									<mm_select v-model="query.size" :options="$to_size()" @change="search()" />
+									<control_select v-model="query.size" :options="$to_size()" @change="search()" />
 								</div>
 								<div class="fr">
 									<span class="mr">共 {{ count }} 条</span>
@@ -135,7 +135,7 @@
 									<input type="number" class="pager_now" v-model.number="page_now" @blur="goTo(page_now)" @change="page_change" />
 									<span>/{{ page_count }}页</span>
 								</div>
-								<mm_pager display="2" v-model="query.page" :count="count / query.size" :func="goTo" :icons="['首页', '上一页', '下一页', '尾页']"></mm_pager>
+								<control_pager display="2" v-model="query.page" :count="count / query.size" :func="goTo" :icons="['首页', '上一页', '下一页', '尾页']"></control_pager>
 							</div>
 						</mm_card>
 					</mm_col>
@@ -151,19 +151,19 @@
 					<dl>
 						<dt>认证状态</dt>
 						<dd>
-							<mm_select v-model="form.institution_state" :options="$to_kv(arr_institution_state)" />
+							<control_select v-model="form.institution_state" :options="$to_kv(arr_institution_state)" />
 						</dd>
 						<dt>商户持有人</dt>
 						<dd>
-							<mm_select v-model="form.user_id" :options="$to_kv(list_account, 'user_id', 'nickname')" />
+							<control_select v-model="form.user_id" :options="$to_kv(list_account, 'user_id', 'nickname')" />
 						</dd>
 						<dt>省份</dt>
 						<dd>
-							<mm_select v-model="form.province_id" :options="$to_kv(list_address_province, 'province_id', 'name')" />
+							<control_select v-model="form.province_id" :options="$to_kv(list_address_province, 'province_id', 'name')" />
 						</dd>
 						<dt>所在城市</dt>
 						<dd>
-							<mm_select v-model="form.city_id" :options="$to_kv(list_address_city, 'city_id', 'name')" />
+							<control_select v-model="form.city_id" :options="$to_kv(list_address_city, 'city_id', 'name')" />
 						</dd>
 					</dl>
 				</div>

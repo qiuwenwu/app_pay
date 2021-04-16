@@ -13,40 +13,40 @@
 									<dl>
 										<dt>认证状态</dt>
 										<dd>
-											<mm_select v-model="form.institution_state" :options="$to_kv(arr_institution_state)" />
+											<control_select v-model="form.institution_state" :options="$to_kv(arr_institution_state)" />
 										</dd>
 										<dt>商户持有人</dt>
 										<dd>
-											<mm_select v-model="form.user_id" :options="$to_kv(list_account, 'user_id', 'nickname', 0)" />
+											<control_select v-model="form.user_id" :options="$to_kv(list_account, 'user_id', 'nickname', 0)" />
 										</dd>
 										<dt>省份</dt>
 										<dd>
-											<mm_select v-model="form.province_id" :options="$to_kv(list_address_province, 'province_id', 'name', 0)" />
+											<control_select v-model="form.province_id" :options="$to_kv(list_address_province, 'province_id', 'name', 0)" />
 										</dd>
 										<dt>所在城市</dt>
 										<dd>
-											<mm_select v-model="form.city_id" :options="$to_kv(list_address_city, 'city_id', 'name', 0)" />
+											<control_select v-model="form.city_id" :options="$to_kv(list_address_city, 'city_id', 'name', 0)" />
 										</dd>
 										<dt class="required">商户名称</dt>
 										<dd>
-											<mm_input v-model="form.name" :minlength="0" :maxlength="16" placeholder=""
+											<control_input v-model="form.name" :minlength="0" :maxlength="16" placeholder=""
 											 :required="true" />
 										</dd>
 										<dt>注册企业名</dt>
 										<dd>
-											<mm_input v-model="form.institution" :minlength="0" :maxlength="64" placeholder="" />
+											<control_input v-model="form.institution" :minlength="0" :maxlength="64" placeholder="" />
 										</dd>
 										<dt>组织机构码</dt>
 										<dd>
-											<mm_input v-model="form.institution_code" :minlength="0" :maxlength="64" placeholder="" />
+											<control_input v-model="form.institution_code" :minlength="0" :maxlength="64" placeholder="" />
 										</dd>
 										<dt>详细地址</dt>
 										<dd>
-											<mm_input v-model="form.address" :minlength="0" :maxlength="255" placeholder="商户办公地的详细地址" />
+											<control_input v-model="form.address" :minlength="0" :maxlength="255" placeholder="商户办公地的详细地址" />
 										</dd>
 										<dt>经营范围</dt>
 										<dd>
-											<mm_input v-model="form.business" :minlength="0" :maxlength="255" placeholder="" />
+											<control_input v-model="form.business" :minlength="0" :maxlength="255" placeholder="" />
 										</dd>
 										<dt>营业执照图片</dt>
 										<dd>

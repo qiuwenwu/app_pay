@@ -13,27 +13,27 @@
 									<dl>
 										<dt>美元余额</dt>
 										<dd>
-											<mm_number v-model="form.usd" :min="0" :max="0" />
+											<control_number v-model="form.usd" :min="0" :max="0" />
 										</dd>
 										<dt>人民币余额</dt>
 										<dd>
-											<mm_number v-model="form.cny" :min="0" :max="0" />
+											<control_number v-model="form.cny" :min="0" :max="0" />
 										</dd>
 										<dt>美眉币余额</dt>
 										<dd>
-											<mm_number v-model="form.mm" :min="0" :max="0" />
+											<control_number v-model="form.mm" :min="0" :max="0" />
 										</dd>
 										<dt>比特币余额</dt>
 										<dd>
-											<mm_number v-model="form.btc" :min="0" :max="0" />
+											<control_number v-model="form.btc" :min="0" :max="0" />
 										</dd>
 										<dt>以太币余额</dt>
 										<dd>
-											<mm_number v-model="form.eth" :min="0" :max="0" />
+											<control_number v-model="form.eth" :min="0" :max="0" />
 										</dd>
 										<dt>柚子币余额</dt>
 										<dd>
-											<mm_number v-model="form.eos" :min="0" :max="0" />
+											<control_number v-model="form.eos" :min="0" :max="0" />
 										</dd>
 									</dl>
 								</mm_form>

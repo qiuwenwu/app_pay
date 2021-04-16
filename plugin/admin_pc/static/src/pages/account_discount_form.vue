@@ -13,27 +13,27 @@
 									<dl>
 										<dt>提现状态</dt>
 										<dd>
-											<mm_select v-model="form.state" :options="$to_kv(arr_state)" />
+											<control_select v-model="form.state" :options="$to_kv(arr_state)" />
 										</dd>
 										<dt>收款人</dt>
 										<dd>
-											<mm_select v-model="form.to_user_id" :options="$to_kv(list_account, 'user_id', 'nickname', 0)" />
+											<control_select v-model="form.to_user_id" :options="$to_kv(list_account, 'user_id', 'nickname', 0)" />
 										</dd>
 										<dt>商户</dt>
 										<dd>
-											<mm_select v-model="form.seller_id" :options="$to_kv(list_seller, 'seller_id', 'name', 0)" />
+											<control_select v-model="form.seller_id" :options="$to_kv(list_seller, 'seller_id', 'name', 0)" />
 										</dd>
 										<dt>审批人</dt>
 										<dd>
-											<mm_select v-model="form.user_id" :options="$to_kv(list_account, 'user_id', 'nickname', 0)" />
+											<control_select v-model="form.user_id" :options="$to_kv(list_account, 'user_id', 'nickname', 0)" />
 										</dd>
 										<dt>提现金额</dt>
 										<dd>
-											<mm_number v-model="form.amount" :min="0" :max="0" />
+											<control_number v-model="form.amount" :min="0" :max="0" />
 										</dd>
 										<dt>手续费</dt>
 										<dd>
-											<mm_number v-model="form.fee" :min="0" :max="0" />
+											<control_number v-model="form.fee" :min="0" :max="0" />
 										</dd>
 										<dt>转账支付时间</dt>
 										<dd>
@@ -45,35 +45,35 @@
 										</dd>
 										<dt>应用平台</dt>
 										<dd>
-											<mm_input v-model="form.platform" :minlength="0" :maxlength="12" placeholder="pc电脑版网站 / moblie移动版网站 / wechat微信公众号 / app手机应用" />
+											<control_input v-model="form.platform" :minlength="0" :maxlength="12" placeholder="pc电脑版网站 / moblie移动版网站 / wechat微信公众号 / app手机应用" />
 										</dd>
 										<dt>收款方式</dt>
 										<dd>
-											<mm_input v-model="form.way" :minlength="0" :maxlength="12" placeholder="third第三方支付 / bank网银 / digiccy数字货币" />
+											<control_input v-model="form.way" :minlength="0" :maxlength="12" placeholder="third第三方支付 / bank网银 / digiccy数字货币" />
 										</dd>
 										<dt>转账机构</dt>
 										<dd>
-											<mm_input v-model="form.institution" :minlength="0" :maxlength="16" placeholder="第三方填支付宝 / 微信，银行填银行名称例如建设银行，数字货币填数字货币名称，例如比特币" />
+											<control_input v-model="form.institution" :minlength="0" :maxlength="16" placeholder="第三方填支付宝 / 微信，银行填银行名称例如建设银行，数字货币填数字货币名称，例如比特币" />
 										</dd>
 										<dt>发起提现时的IP</dt>
 										<dd>
-											<mm_input v-model="form.ip" :minlength="0" :maxlength="32" placeholder="" />
+											<control_input v-model="form.ip" :minlength="0" :maxlength="32" placeholder="" />
 										</dd>
 										<dt>付款账户</dt>
 										<dd>
-											<mm_input v-model="form.from_user" :minlength="0" :maxlength="128" placeholder="" />
+											<control_input v-model="form.from_user" :minlength="0" :maxlength="128" placeholder="" />
 										</dd>
 										<dt>收款账户</dt>
 										<dd>
-											<mm_input v-model="form.to_user" :minlength="0" :maxlength="128" placeholder="" />
+											<control_input v-model="form.to_user" :minlength="0" :maxlength="128" placeholder="" />
 										</dd>
 										<dt>拒绝原因</dt>
 										<dd>
-											<mm_input v-model="form.cause" :minlength="0" :maxlength="255" placeholder="告知商户为什么拒绝本次提现" />
+											<control_input v-model="form.cause" :minlength="0" :maxlength="255" placeholder="告知商户为什么拒绝本次提现" />
 										</dd>
 										<dt>商户备注</dt>
 										<dd>
-											<mm_rich v-model="form.note"></mm_rich>
+											<control_rich v-model="form.note"></control_rich>
 										</dd>
 									</dl>
 								</mm_form>

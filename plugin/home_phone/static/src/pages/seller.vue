@@ -8,7 +8,7 @@
 					<div class="head">{title}</div>
 
 					<!-- 搜索栏 -->
-					<mm_search id="search" v-model="query.keyword" :func="search"></mm_search>
+					<bar_search id="search" v-model="query.keyword" :func="search"></bar_search>
 
 					<!-- 表格 -->
 					<mm_table id="table">
@@ -17,7 +17,7 @@
 					</mm_table>
 
 					<!-- 分页器 -->
-					<mm_pager display="2" v-model="query.page" :count="count / query.size" :func="goTo"></mm_pager>
+					<control_pager display="2" v-model="query.page" :count="count / query.size" :func="goTo"></control_pager>
 				</mm_card>
 			</mm_col>
 		</mm_grid>

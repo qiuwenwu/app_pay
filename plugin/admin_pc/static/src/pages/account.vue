@@ -9,52 +9,52 @@
 								<h5>支付账户</h5>
 							</div>
 							<div class="card_body">
-								<mm_form class="mm_filter">
+								<mm_form class="bar_filter">
 									<div class="title">
 										<h5><span>筛选条件</span></h5>
 									</div>
 									<mm_list col="3">
 										<mm_item>
-											<mm_input v-model="query.keyword" title="关键词" desc="网银名称"
+											<control_input v-model="query.keyword" title="关键词" desc="网银名称"
 											 @blur="search()" />
 										</mm_item>
 										<mm_item>
-											<mm_select v-model="query.state" title="状态" :options="$to_kv(arr_state)" @change="search()" />
+											<control_select v-model="query.state" title="状态" :options="$to_kv(arr_state)" @change="search()" />
 										</mm_item>
 										<mm_item>
-											<mm_select v-model="query.bank_state" title="网银认证" :options="$to_kv(arr_bank_state)" @change="search()" />
+											<control_select v-model="query.bank_state" title="网银认证" :options="$to_kv(arr_bank_state)" @change="search()" />
 										</mm_item>
 										<mm_item>
-											<mm_select v-model="query.wechat_state" title="微信认证" :options="$to_kv(arr_wechat_state)" @change="search()" />
+											<control_select v-model="query.wechat_state" title="微信认证" :options="$to_kv(arr_wechat_state)" @change="search()" />
 										</mm_item>
 										<mm_item>
-											<mm_select v-model="query.alipay_state" title="支付宝认证" :options="$to_kv(arr_alipay_state)" @change="search()" />
+											<control_select v-model="query.alipay_state" title="支付宝认证" :options="$to_kv(arr_alipay_state)" @change="search()" />
 										</mm_item>
 										<mm_item>
-											<mm_select v-model="query.btc_state" title="比特币地址认证" :options="$to_kv(arr_btc_state)" @change="search()" />
+											<control_select v-model="query.btc_state" title="比特币地址认证" :options="$to_kv(arr_btc_state)" @change="search()" />
 										</mm_item>
 										<mm_item>
-											<mm_select v-model="query.eth_state" title="以太币地址认证" :options="$to_kv(arr_eth_state)" @change="search()" />
+											<control_select v-model="query.eth_state" title="以太币地址认证" :options="$to_kv(arr_eth_state)" @change="search()" />
 										</mm_item>
 										<mm_item>
-											<mm_select v-model="query.eos_state" title="柚子币地址认证" :options="$to_kv(arr_eos_state)" @change="search()" />
+											<control_select v-model="query.eos_state" title="柚子币地址认证" :options="$to_kv(arr_eos_state)" @change="search()" />
 										</mm_item>
 										<mm_item>
-											<mm_select v-model="query.mm_state" title="美眉币地址认证" :options="$to_kv(arr_mm_state)" @change="search()" />
+											<control_select v-model="query.mm_state" title="美眉币地址认证" :options="$to_kv(arr_mm_state)" @change="search()" />
 										</mm_item>
 										<mm_item>
 											<mm_btn class="btn_primary-x" type="reset" @click.native="reset();search()">重置</mm_btn>
 										</mm_item>
 									</mm_list>
 								</mm_form>
-								<div class="mm_action">
+								<div class="bar_action">
 									<h5><span>操作</span></h5>
 									<div class="btns">
 										<mm_btn class="btn_primary-x" url="./account_form?">添加</mm_btn>
 										<mm_btn @click.native="show = true" class="btn_primary-x" v-bind:class="{ 'disabled': !selects }">批量修改</mm_btn>
 									</div>
 									<div class="btn_small">
-										<mm_file class="btn_default-x" type="excel" :func="import_db" v-if="url_import"></mm_file>
+										<control_file class="btn_default-x" type="excel" :func="import_db" v-if="url_import"></control_file>
 										<mm_btn class="btn_default-x" @click.native="export_db()" v-if="url_export">导出</mm_btn>
 									</div>
 								</div>
@@ -64,52 +64,52 @@
 											<th class="th_selected"><input type="checkbox" :checked="select_state" @click="select_all()" /></th>
 											<th class="th_id"><span>#</span></th>
 											<th>
-												<mm_reverse title="状态" v-model="query.orderby" field="state" :func="search"></mm_reverse>
+												<control_reverse title="状态" v-model="query.orderby" field="state" :func="search"></control_reverse>
 											</th>
 											<th>
-												<mm_reverse title="网银账户" v-model="query.orderby" field="bank" :func="search"></mm_reverse>
+												<control_reverse title="网银账户" v-model="query.orderby" field="bank" :func="search"></control_reverse>
 											</th>
 											<th>
-												<mm_reverse title="网银名称" v-model="query.orderby" field="bank_name" :func="search"></mm_reverse>
+												<control_reverse title="网银名称" v-model="query.orderby" field="bank_name" :func="search"></control_reverse>
 											</th>
 											<th>
-												<mm_reverse title="网银认证" v-model="query.orderby" field="bank_state" :func="search"></mm_reverse>
+												<control_reverse title="网银认证" v-model="query.orderby" field="bank_state" :func="search"></control_reverse>
 											</th>
 											<th>
-												<mm_reverse title="收款微信账户" v-model="query.orderby" field="wechat" :func="search"></mm_reverse>
+												<control_reverse title="收款微信账户" v-model="query.orderby" field="wechat" :func="search"></control_reverse>
 											</th>
 											<th>
-												<mm_reverse title="微信认证" v-model="query.orderby" field="wechat_state" :func="search"></mm_reverse>
+												<control_reverse title="微信认证" v-model="query.orderby" field="wechat_state" :func="search"></control_reverse>
 											</th>
 											<th>
-												<mm_reverse title="收款支付宝账户" v-model="query.orderby" field="alipay" :func="search"></mm_reverse>
+												<control_reverse title="收款支付宝账户" v-model="query.orderby" field="alipay" :func="search"></control_reverse>
 											</th>
 											<th>
-												<mm_reverse title="支付宝认证" v-model="query.orderby" field="alipay_state" :func="search"></mm_reverse>
+												<control_reverse title="支付宝认证" v-model="query.orderby" field="alipay_state" :func="search"></control_reverse>
 											</th>
 											<th>
-												<mm_reverse title="比特币地址" v-model="query.orderby" field="btc" :func="search"></mm_reverse>
+												<control_reverse title="比特币地址" v-model="query.orderby" field="btc" :func="search"></control_reverse>
 											</th>
 											<th>
-												<mm_reverse title="比特币地址认证" v-model="query.orderby" field="btc_state" :func="search"></mm_reverse>
+												<control_reverse title="比特币地址认证" v-model="query.orderby" field="btc_state" :func="search"></control_reverse>
 											</th>
 											<th>
-												<mm_reverse title="以太币地址" v-model="query.orderby" field="eth" :func="search"></mm_reverse>
+												<control_reverse title="以太币地址" v-model="query.orderby" field="eth" :func="search"></control_reverse>
 											</th>
 											<th>
-												<mm_reverse title="以太币地址认证" v-model="query.orderby" field="eth_state" :func="search"></mm_reverse>
+												<control_reverse title="以太币地址认证" v-model="query.orderby" field="eth_state" :func="search"></control_reverse>
 											</th>
 											<th>
-												<mm_reverse title="柚子币地址" v-model="query.orderby" field="eos" :func="search"></mm_reverse>
+												<control_reverse title="柚子币地址" v-model="query.orderby" field="eos" :func="search"></control_reverse>
 											</th>
 											<th>
-												<mm_reverse title="柚子币地址认证" v-model="query.orderby" field="eos_state" :func="search"></mm_reverse>
+												<control_reverse title="柚子币地址认证" v-model="query.orderby" field="eos_state" :func="search"></control_reverse>
 											</th>
 											<th>
-												<mm_reverse title="美眉币地址" v-model="query.orderby" field="mm" :func="search"></mm_reverse>
+												<control_reverse title="美眉币地址" v-model="query.orderby" field="mm" :func="search"></control_reverse>
 											</th>
 											<th>
-												<mm_reverse title="美眉币地址认证" v-model="query.orderby" field="mm_state" :func="search"></mm_reverse>
+												<control_reverse title="美眉币地址认证" v-model="query.orderby" field="mm_state" :func="search"></control_reverse>
 											</th>
 											<th class="th_handle"><span>操作</span></th>
 										</tr>
@@ -129,43 +129,43 @@
 												<span>{{ o.bank_name }}</span>
 											</td>
 											<td>
-												<mm_switch v-model="o.bank_state" @click.native="set(o)" />
+												<control_switch v-model="o.bank_state" @click.native="set(o)" />
 											</td>
 											<td>
 												<span>{{ o.wechat }}</span>
 											</td>
 											<td>
-												<mm_switch v-model="o.wechat_state" @click.native="set(o)" />
+												<control_switch v-model="o.wechat_state" @click.native="set(o)" />
 											</td>
 											<td>
 												<span>{{ o.alipay }}</span>
 											</td>
 											<td>
-												<mm_switch v-model="o.alipay_state" @click.native="set(o)" />
+												<control_switch v-model="o.alipay_state" @click.native="set(o)" />
 											</td>
 											<td>
 												<span>{{ o.btc }}</span>
 											</td>
 											<td>
-												<mm_switch v-model="o.btc_state" @click.native="set(o)" />
+												<control_switch v-model="o.btc_state" @click.native="set(o)" />
 											</td>
 											<td>
 												<span>{{ o.eth }}</span>
 											</td>
 											<td>
-												<mm_switch v-model="o.eth_state" @click.native="set(o)" />
+												<control_switch v-model="o.eth_state" @click.native="set(o)" />
 											</td>
 											<td>
 												<span>{{ o.eos }}</span>
 											</td>
 											<td>
-												<mm_switch v-model="o.eos_state" @click.native="set(o)" />
+												<control_switch v-model="o.eos_state" @click.native="set(o)" />
 											</td>
 											<td>
 												<span>{{ o.mm }}</span>
 											</td>
 											<td>
-												<mm_switch v-model="o.mm_state" @click.native="set(o)" />
+												<control_switch v-model="o.mm_state" @click.native="set(o)" />
 											</td>
 											<td>
 												<mm_btn class="btn_primary" :url="'./account_form?user_id=' + o[field]">修改</mm_btn>
@@ -178,7 +178,7 @@
 							</div>
 							<div class="card_foot">
 								<div class="fl">
-									<mm_select v-model="query.size" :options="$to_size()" @change="search()" />
+									<control_select v-model="query.size" :options="$to_size()" @change="search()" />
 								</div>
 								<div class="fr">
 									<span class="mr">共 {{ count }} 条</span>
@@ -186,7 +186,7 @@
 									<input type="number" class="pager_now" v-model.number="page_now" @blur="goTo(page_now)" @change="page_change" />
 									<span>/{{ page_count }}页</span>
 								</div>
-								<mm_pager display="2" v-model="query.page" :count="count / query.size" :func="goTo" :icons="['首页', '上一页', '下一页', '尾页']"></mm_pager>
+								<control_pager display="2" v-model="query.page" :count="count / query.size" :func="goTo" :icons="['首页', '上一页', '下一页', '尾页']"></control_pager>
 							</div>
 						</mm_card>
 					</mm_col>
@@ -202,35 +202,35 @@
 					<dl>
 						<dt>状态</dt>
 						<dd>
-							<mm_select v-model="form.state" :options="$to_kv(arr_state)" />
+							<control_select v-model="form.state" :options="$to_kv(arr_state)" />
 						</dd>
 						<dt>网银认证</dt>
 						<dd>
-							<mm_select v-model="form.bank_state" :options="$to_kv(arr_bank_state)" />
+							<control_select v-model="form.bank_state" :options="$to_kv(arr_bank_state)" />
 						</dd>
 						<dt>微信认证</dt>
 						<dd>
-							<mm_select v-model="form.wechat_state" :options="$to_kv(arr_wechat_state)" />
+							<control_select v-model="form.wechat_state" :options="$to_kv(arr_wechat_state)" />
 						</dd>
 						<dt>支付宝认证</dt>
 						<dd>
-							<mm_select v-model="form.alipay_state" :options="$to_kv(arr_alipay_state)" />
+							<control_select v-model="form.alipay_state" :options="$to_kv(arr_alipay_state)" />
 						</dd>
 						<dt>比特币地址认证</dt>
 						<dd>
-							<mm_select v-model="form.btc_state" :options="$to_kv(arr_btc_state)" />
+							<control_select v-model="form.btc_state" :options="$to_kv(arr_btc_state)" />
 						</dd>
 						<dt>以太币地址认证</dt>
 						<dd>
-							<mm_select v-model="form.eth_state" :options="$to_kv(arr_eth_state)" />
+							<control_select v-model="form.eth_state" :options="$to_kv(arr_eth_state)" />
 						</dd>
 						<dt>柚子币地址认证</dt>
 						<dd>
-							<mm_select v-model="form.eos_state" :options="$to_kv(arr_eos_state)" />
+							<control_select v-model="form.eos_state" :options="$to_kv(arr_eos_state)" />
 						</dd>
 						<dt>美眉币地址认证</dt>
 						<dd>
-							<mm_select v-model="form.mm_state" :options="$to_kv(arr_mm_state)" />
+							<control_select v-model="form.mm_state" :options="$to_kv(arr_mm_state)" />
 						</dd>
 					</dl>
 				</div>

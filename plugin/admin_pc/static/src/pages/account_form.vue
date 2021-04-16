@@ -13,67 +13,67 @@
 									<dl>
 										<dt>状态</dt>
 										<dd>
-											<mm_select v-model="form.state" :options="$to_kv(arr_state)" />
+											<control_select v-model="form.state" :options="$to_kv(arr_state)" />
 										</dd>
 										<dt>网银账户</dt>
 										<dd>
-											<mm_input v-model="form.bank" :minlength="0" :maxlength="32" placeholder="" />
+											<control_input v-model="form.bank" :minlength="0" :maxlength="32" placeholder="" />
 										</dd>
 										<dt>网银名称</dt>
 										<dd>
-											<mm_input v-model="form.bank_name" :minlength="0" :maxlength="255" placeholder="含支行" />
+											<control_input v-model="form.bank_name" :minlength="0" :maxlength="255" placeholder="含支行" />
 										</dd>
 										<dt>网银认证</dt>
 										<dd>
-											<mm_switch v-model="form.bank_state" />
+											<control_switch v-model="form.bank_state" />
 										</dd>
 										<dt>收款微信账户</dt>
 										<dd>
-											<mm_input v-model="form.wechat" :minlength="0" :maxlength="32" placeholder="" />
+											<control_input v-model="form.wechat" :minlength="0" :maxlength="32" placeholder="" />
 										</dd>
 										<dt>微信认证</dt>
 										<dd>
-											<mm_switch v-model="form.wechat_state" />
+											<control_switch v-model="form.wechat_state" />
 										</dd>
 										<dt>收款支付宝账户</dt>
 										<dd>
-											<mm_input v-model="form.alipay" :minlength="0" :maxlength="32" placeholder="" />
+											<control_input v-model="form.alipay" :minlength="0" :maxlength="32" placeholder="" />
 										</dd>
 										<dt>支付宝认证</dt>
 										<dd>
-											<mm_switch v-model="form.alipay_state" />
+											<control_switch v-model="form.alipay_state" />
 										</dd>
 										<dt>比特币地址</dt>
 										<dd>
-											<mm_input v-model="form.btc" :minlength="0" :maxlength="255" placeholder="" />
+											<control_input v-model="form.btc" :minlength="0" :maxlength="255" placeholder="" />
 										</dd>
 										<dt>比特币地址认证</dt>
 										<dd>
-											<mm_switch v-model="form.btc_state" />
+											<control_switch v-model="form.btc_state" />
 										</dd>
 										<dt>以太币地址</dt>
 										<dd>
-											<mm_input v-model="form.eth" :minlength="0" :maxlength="255" placeholder="" />
+											<control_input v-model="form.eth" :minlength="0" :maxlength="255" placeholder="" />
 										</dd>
 										<dt>以太币地址认证</dt>
 										<dd>
-											<mm_switch v-model="form.eth_state" />
+											<control_switch v-model="form.eth_state" />
 										</dd>
 										<dt>柚子币地址</dt>
 										<dd>
-											<mm_input v-model="form.eos" :minlength="0" :maxlength="255" placeholder="" />
+											<control_input v-model="form.eos" :minlength="0" :maxlength="255" placeholder="" />
 										</dd>
 										<dt>柚子币地址认证</dt>
 										<dd>
-											<mm_switch v-model="form.eos_state" />
+											<control_switch v-model="form.eos_state" />
 										</dd>
 										<dt>美眉币地址</dt>
 										<dd>
-											<mm_input v-model="form.mm" :minlength="0" :maxlength="255" placeholder="" />
+											<control_input v-model="form.mm" :minlength="0" :maxlength="255" placeholder="" />
 										</dd>
 										<dt>美眉币地址认证</dt>
 										<dd>
-											<mm_switch v-model="form.mm_state" />
+											<control_switch v-model="form.mm_state" />
 										</dd>
 									</dl>
 								</mm_form>
