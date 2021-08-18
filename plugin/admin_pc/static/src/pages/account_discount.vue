@@ -116,13 +116,13 @@
 												<span v-bind:class="arr_color[o.state]">{{arr_state[o.state] }}</span>
 											</td>
 											<td>
-												<span>{{ get_name(list_account, o.to_user_id, 'user_id', 'nickname') }}</span>
+												<span>{{ $get_name(list_account, o.to_user_id, 'user_id', 'nickname') }}</span>
 											</td>
 											<td>
-												<span>{{ get_name(list_seller, o.seller_id, 'seller_id', 'name') }}</span>
+												<span>{{ $get_name(list_seller, o.seller_id, 'seller_id', 'name') }}</span>
 											</td>
 											<td>
-												<span>{{ get_name(list_account, o.user_id, 'user_id', 'nickname') }}</span>
+												<span>{{ $get_name(list_account, o.user_id, 'user_id', 'nickname') }}</span>
 											</td>
 											<td>
 												<span>{{ o.amount }}</span>

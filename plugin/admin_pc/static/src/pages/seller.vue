@@ -93,13 +93,13 @@
 												<span>{{arr_institution_state[o.institution_state] }}</span>
 											</td>
 											<td>
-												<span>{{ get_name(list_account, o.user_id, 'user_id', 'nickname') }}</span>
+												<span>{{ $get_name(list_account, o.user_id, 'user_id', 'nickname') }}</span>
 											</td>
 											<td>
-												<span>{{ get_name(list_address_province, o.province_id, 'province_id', 'name') }}</span>
+												<span>{{ $get_name(list_address_province, o.province_id, 'province_id', 'name') }}</span>
 											</td>
 											<td>
-												<span>{{ get_name(list_address_city, o.city_id, 'city_id', 'name') }}</span>
+												<span>{{ $get_name(list_address_city, o.city_id, 'city_id', 'name') }}</span>
 											</td>
 											<td>
 												<span>{{ o.name }}</span>
