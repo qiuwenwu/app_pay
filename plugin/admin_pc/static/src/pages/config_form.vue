@@ -63,7 +63,8 @@
 		components: {},
 		data() {
 			return {
-				url: "/apis/pay/config?",
+				url_add: "/apis/pay/config?method=add",
+				url_set: "/apis/pay/config?method=set",
 				url_get_obj: "/apis/pay/config?method=get_obj",
 				field: "config_id",
 				query: {

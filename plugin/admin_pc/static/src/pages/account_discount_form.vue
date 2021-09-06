@@ -17,15 +17,15 @@
 										</dd>
 										<dt>收款人</dt>
 										<dd>
-											<control_select v-model="form.to_user_id" :options="$to_kv(list_account, 'user_id', 'nickname', 0)" />
+											<control_select v-model="form.to_user_id" :options="$to_kv(list_account, 'user_id', 'nickname', '0')" />
 										</dd>
 										<dt>商户</dt>
 										<dd>
-											<control_select v-model="form.seller_id" :options="$to_kv(list_seller, 'seller_id', 'name', 0)" />
+											<control_select v-model="form.seller_id" :options="$to_kv(list_seller, 'seller_id', 'name', '0')" />
 										</dd>
 										<dt>审批人</dt>
 										<dd>
-											<control_select v-model="form.user_id" :options="$to_kv(list_account, 'user_id', 'nickname', 0)" />
+											<control_select v-model="form.user_id" :options="$to_kv(list_account, 'user_id', 'nickname', '0')" />
 										</dd>
 										<dt>提现金额</dt>
 										<dd>
@@ -101,7 +101,8 @@
 		components: {},
 		data() {
 			return {
-				url: "/apis/pay/account_discount?",
+				url_add: "/apis/pay/account_discount?method=add",
+				url_set: "/apis/pay/account_discount?method=set",
 				url_get_obj: "/apis/pay/account_discount?method=get_obj",
 				field: "discount_id",
 				query: {

@@ -17,15 +17,15 @@
 										</dd>
 										<dt>付款人</dt>
 										<dd>
-											<control_select v-model="form.from_user_id" :options="$to_kv(list_account, 'user_id', 'nickname', 0)" />
+											<control_select v-model="form.from_user_id" :options="$to_kv(list_account, 'user_id', 'nickname', '0')" />
 										</dd>
 										<dt>收款人</dt>
 										<dd>
-											<control_select v-model="form.to_user_id" :options="$to_kv(list_account, 'user_id', 'nickname', 0)" />
+											<control_select v-model="form.to_user_id" :options="$to_kv(list_account, 'user_id', 'nickname', '0')" />
 										</dd>
 										<dt>商户</dt>
 										<dd>
-											<control_select v-model="form.seller_id" :options="$to_kv(list_seller, 'seller_id', 'name', 0)" />
+											<control_select v-model="form.seller_id" :options="$to_kv(list_seller, 'seller_id', 'name', '0')" />
 										</dd>
 										<dt>付款总计金额</dt>
 										<dd>
@@ -122,7 +122,8 @@
 		components: {},
 		data() {
 			return {
-				url: "/apis/pay/trade?",
+				url_add: "/apis/pay/trade?method=add",
+				url_set: "/apis/pay/trade?method=set",
 				url_get_obj: "/apis/pay/trade?method=get_obj",
 				field: "trade_id",
 				query: {

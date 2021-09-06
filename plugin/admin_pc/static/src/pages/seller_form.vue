@@ -17,15 +17,15 @@
 										</dd>
 										<dt>商户持有人</dt>
 										<dd>
-											<control_select v-model="form.user_id" :options="$to_kv(list_account, 'user_id', 'nickname', 0)" />
+											<control_select v-model="form.user_id" :options="$to_kv(list_account, 'user_id', 'nickname', '0')" />
 										</dd>
 										<dt>省份</dt>
 										<dd>
-											<control_select v-model="form.province_id" :options="$to_kv(list_address_province, 'province_id', 'name', 0)" />
+											<control_select v-model="form.province_id" :options="$to_kv(list_address_province, 'province_id', 'name', '0')" />
 										</dd>
 										<dt>所在城市</dt>
 										<dd>
-											<control_select v-model="form.city_id" :options="$to_kv(list_address_city, 'city_id', 'name', 0)" />
+											<control_select v-model="form.city_id" :options="$to_kv(list_address_city, 'city_id', 'name', '0')" />
 										</dd>
 										<dt class="required">商户名称</dt>
 										<dd>
@@ -78,7 +78,8 @@
 		components: {},
 		data() {
 			return {
-				url: "/apis/pay/seller?",
+				url_add: "/apis/pay/seller?method=add",
+				url_set: "/apis/pay/seller?method=set",
 				url_get_obj: "/apis/pay/seller?method=get_obj",
 				field: "seller_id",
 				query: {

@@ -90,7 +90,7 @@
 											<th class="th_selected"><input type="checkbox" :checked="select_has(o[field])" @click="select_change(o[field])" /></th>
 											<td>{{ o[field] }}</td>
 											<td>
-												<span>{{arr_institution_state[o.institution_state] }}</span>
+												<span>{{ $get_name(arr_institution_state, o.institution_state, 'value') }}</span>
 											</td>
 											<td>
 												<span>{{ $get_name(list_account, o.user_id, 'user_id', 'nickname') }}</span>
@@ -147,7 +147,7 @@
 				<div class="card_head">
 					<h5>批量修改</h5>
 				</div>
-				<div class="card_body">
+				<div class="card_body pa">
 					<dl>
 						<dt>认证状态</dt>
 						<dd>

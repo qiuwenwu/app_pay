@@ -61,7 +61,8 @@
 		components: {},
 		data() {
 			return {
-				url: "/apis/pay/account_amount?",
+				url_add: "/apis/pay/account_amount?method=add",
+				url_set: "/apis/pay/account_amount?method=set",
 				url_get_obj: "/apis/pay/account_amount?method=get_obj",
 				field: "seller_id",
 				query: {

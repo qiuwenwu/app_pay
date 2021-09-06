@@ -101,7 +101,8 @@
 		components: {},
 		data() {
 			return {
-				url: "/apis/pay/account?",
+				url_add: "/apis/pay/account?method=add",
+				url_set: "/apis/pay/account?method=set",
 				url_get_obj: "/apis/pay/account?method=get_obj",
 				field: "user_id",
 				query: {

@@ -16,10 +16,10 @@
 									<mm_list :col="3">
 										<mm_item>
 											<control_input v-model="query.keyword" title="关键词" desc="变量名 / 变量标题 / 变量描述"
-											 @blur="search()" />
+											  />
 										</mm_item>
 										<mm_item>
-											<mm_btn class="btn_primary-x" type="reset" @click.native="reset();search()">重置</mm_btn>
+											<mm_btn class="btn_primary-x" type="reset" @click.native="reset();">重置</mm_btn>
 										</mm_item>
 									</mm_list>
 								</mm_form>
@@ -37,7 +37,6 @@
 								<mm_table type="2">
 									<thead class="table-sm">
 										<tr>
-											<th class="th_selected"><input type="checkbox" :checked="select_state" @click="select_all()" /></th>
 											<th class="th_id"><span>#</span></th>
 											<th>
 												<control_reverse title="变量名" v-model="query.orderby" field="name" :func="search"></control_reverse>
@@ -60,22 +59,21 @@
 									<tbody>
 										<!-- <draggable v-model="list" tag="tbody" @change="sort_change"> -->
 										<tr v-for="(o, idx) in list" :key="idx" :class="{'active': select == idx}" @click="selected(idx)">
-											<th class="th_selected"><input type="checkbox" :checked="select_has(o[field])" @click="select_change(o[field])" /></th>
 											<td>{{ o[field] }}</td>
 											<td>
-												<span>{{ o.name }}</span>
+												<control_input :auto="true" v-model="o.name" @blur="set(o)" />
 											</td>
 											<td>
-												<span>{{ o.type }}</span>
+												<control_input :auto="true" v-model="o.type" @blur="set(o)" />
 											</td>
 											<td>
-												<span>{{ o.title }}</span>
+												<control_input :auto="true" v-model="o.title" @blur="set(o)" />
 											</td>
 											<td>
-												<span>{{ o.description }}</span>
+												<control_input :auto="true" v-model="o.description" @blur="set(o)" />
 											</td>
 											<td>
-												<span>{{ o.value }}</span>
+												<control_com :auto="true" v-model="o.value" @change="set(o)" />
 											</td>
 											<td>
 												<mm_btn class="btn_primary" :url="'./config_form?config_id=' + o[field]">修改</mm_btn>
@@ -85,18 +83,6 @@
 									</tbody>
 									<!-- </draggable> -->
 								</mm_table>
-							</div>
-							<div class="card_foot">
-								<div class="fl">
-									<control_select v-model="query.size" :options="$to_size()" @change="search()" />
-								</div>
-								<div class="fr">
-									<span class="mr">共 {{ count }} 条</span>
-									<span>当前</span>
-									<input type="number" class="pager_now" v-model.number="page_now" @blur="goTo(page_now)" @change="page_change" />
-									<span>/{{ page_count }}页</span>
-								</div>
-								<control_pager display="2" v-model="query.page" :count="count / query.size" :func="goTo" :icons="['首页', '上一页', '下一页', '尾页']"></control_pager>
 							</div>
 						</mm_card>
 					</mm_col>
@@ -108,7 +94,7 @@
 				<div class="card_head">
 					<h5>批量修改</h5>
 				</div>
-				<div class="card_body">
+				<div class="card_body pa">
 					<dl>
 					</dl>
 				</div>
@@ -124,10 +110,14 @@
 </template>
 
 <script>
+	import control_com from '/src/components/control/control_com.vue';
 	import mixin from '/src/mixins/page.js';
 
 	export default {
 		mixins: [mixin],
+		components: {
+			control_com
+		},
 		data() {
 			return {
 				// 列表请求地址
@@ -143,9 +133,9 @@
 				// 查询条件
 				query: {
 					//页码
-					page: 1,
+					page: 0,
 					//页面大小
-					size: 10,
+					size: '0',
 					// 配置ID
 					'config_id': 0,
 					// 变量名
@@ -167,6 +157,15 @@
 			}
 		},
 		methods: {
+			/**
+			 * 获取列表之前
+			 * @param {Object} param 参数
+			 */
+			get_list_before(param){
+				delete param.page;
+				param.size = "0";
+				return param;
+			}
 		},
 		created() {
 		}
